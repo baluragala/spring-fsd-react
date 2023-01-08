@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Java - Capstone2">
+    <test name="User">
+        <classes>
+            <class name="com.knowledgehut.payroll.test.HomeControllerTest"/>
+            <methods>
+                <include name="testEmployee" alias="The user data was correctly imported"/>
+            </methods>
+        </classes>
+    </test>
+</suite>
