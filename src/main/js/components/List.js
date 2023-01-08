@@ -20,7 +20,7 @@ class List extends Component {
     }, this);
 
     return (
-      <table className="chakolate-store-tbl">
+      <table className="chakolate-store-tbl" data-testid={"choco-list"}>
         <thead className="chakolate-store-tb1-thead">
           <tr>
             <th>Name</th>

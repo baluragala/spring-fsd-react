@@ -11,10 +11,10 @@
 		<relativePath/>
 	</parent>
 	
-	<artifactId>react-and-spring-data-rest-basic</artifactId>
+	<artifactId>spring-react-chocoloate-store</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>React.js and Spring Data REST - Basic</name>
+	<name>React.js and Spring Data REST - Chocolate Store</name>
 	<description>An SPA with ReactJS in the frontend and Spring Data REST in the backend</description>
 
 	<properties>
