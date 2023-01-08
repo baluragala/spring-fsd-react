@@ -29,7 +29,7 @@
   },
   "scripts": {
     "watch": "webpack --watch -d --output ./target/classes/static/built/bundle.js",
-    "test": "jest --json"
+    "test": "jest --json --outputFile=results.json"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
