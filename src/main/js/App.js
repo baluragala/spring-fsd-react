@@ -1,39 +1,62 @@
-'use strict';
-
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from "react";
+import "./App.css";
+import List from "./components/List";
+import AddChocolate from "./components/AddChocolate";
+import { maxBy } from "lodash";
 import client from "./client";
-import EmployeeList from "./components/EmployeeList";
 
-// tag::app[]
-export default class App extends React.Component { // <1>
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      chocolates: [
 
-	constructor(props) {
-		super(props);
-		this.state = {employees: []};
-	}
+      ]
+    };
+    this.handleChocolateAdd = this.handleChocolateAdd.bind(this);
+    this.handleChocolateSale = this.handleChocolateSale.bind(this);
+  }
 
-	componentDidMount() { // <2>
-		client({method: 'GET', path: '/api/employees'}).done(response => {
-			this.setState({employees: response.entity._embedded.employees});
-		});
-	}
+  handleChocolateAdd(chocolate) {
+    // let newId = maxBy(this.state.chocolates, "id");
+    // let chocolates = this.state.chocolates.slice();
+    // chocolate["id"] = newId;
+    // chocolates.push(chocolate);
+    // this.setState({ chocolates });
+  }
 
-	render() { // <3>
-		return (
-			<EmployeeList employees={this.state.employees}/>
-		)
-	}
+  handleChocolateSale(name) {
+    var chocolates = [];
+    this.state.chocolates.forEach((ele, index, arr) => {
+      if (ele.name === name) {
+        ele.soh -= 1;
+      }
+      chocolates.push(ele);
+    });
+    this.setState({ chocolates });
+  }
+
+  componentDidMount() { // <2>
+    client({method: 'GET', path: '/api/chocolates'}).done(response => {
+      this.setState({chocolates: response.entity._embedded.chocolates});
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div className="App-header">
+          <img src="./choclate_logo.jpg" className="App-logo" alt="logo" />
+          <h2>Welcome to React - Chocolate Store</h2>
+        </div>
+        <AddChocolate onChocolateAdd={this.handleChocolateAdd} />
+        <List
+          chocolates={this.state.chocolates}
+          onChocolateSale={this.handleChocolateSale}
+        />
+      </div>
+    );
+  }
 }
-// end::app[]
 
-
-
-
-
-// tag::render[]
-ReactDOM.render(
-	<App />,
-	document.getElementById('react')
-)
-// end::render[]
+export default App;

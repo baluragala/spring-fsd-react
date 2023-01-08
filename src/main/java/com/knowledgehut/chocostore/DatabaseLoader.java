@@ -13,29 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.knowledgehut.payroll;
+package com.knowledgehut.chocostore;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-/**
- * @author Greg Turnquist
- */
+
 // tag::code[]
 @Component // <1>
 public class DatabaseLoader implements CommandLineRunner { // <2>
 
-	private final EmployeeRepository repository;
+	private final ChocolateRepository repository;
 
 	@Autowired // <3>
-	public DatabaseLoader(EmployeeRepository repository) {
+	public DatabaseLoader(ChocolateRepository repository) {
 		this.repository = repository;
 	}
 
 	@Override
 	public void run(String... strings) throws Exception { // <4>
-		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer"));
+//		Faker faker = new Faker();
+		this.repository.save(new Chocolate("Diary Milk", "Cadbury", "small",5,10));
+		this.repository.save(new Chocolate("5 Star", "Cadbury", "small",5,10));
+		this.repository.save(new Chocolate("KitKat", "Nestle", "small",5,10));
+
 	}
 }
 // end::code[]

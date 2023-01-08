@@ -1,11 +1,11 @@
-package com.knowledgehut.payroll.test;
+package com.knowledgehut.chocostore.test;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.knowledgehut.payroll.ReactAndSpringDataRestApplication;
+import com.knowledgehut.chocostore.ChocolateStoreApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -16,7 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
-@SpringBootTest(classes = ReactAndSpringDataRestApplication.class)
+@SpringBootTest(classes = ChocolateStoreApplication.class)
 public class HomeControllerTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
