@@ -4,9 +4,11 @@
 <suite name="Java - Capstone2">
     <test name="User">
         <classes>
-            <class name="com.knowledgehut.chocostore.test.HomeControllerTest"/>
+            <class name="com.knowledgehut.chocostore.test.ChocolatesRestApiTest"/>
             <methods>
-                <include name="testEmployee" alias="The user data was correctly imported"/>
+                <include name="testChocolatesApi" alias="Chocolate API should work"/>
+                <include name="testChocolates" alias="Get chocolates should work"/>
+                <include name="testChocolatesForLength" alias="Get chocolates should return 3 chocolates"/>
             </methods>
         </classes>
     </test>
